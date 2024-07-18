@@ -1,6 +1,6 @@
 # Aula 04.3 - Lambda
 
-1. No terminal do IDE criado no cloud9 execute o comando `cd ~/environment/fiap-cloud-computing-tutorials/05-SQS/03\ -\ Lambda` para entrar na pasta que fara este exercicio.
+1. No terminal do IDE criado no cloud9 execute o comando `cd ~/environment/FIAP-Autoglass-Serverless/04-SQS/03-Lambda/` para entrar na pasta que fara este exercicio.
 2. Execute o comando `sls create --template "aws-python3"` no terminal para criar os arquivos do serverless framework.
 3. Altere o handler.py para ficar como na imagem. Não esqueça de colocar a URL da sua fila de destino. Abra com o comando `c9 open handler.py`. Para conseguir a URL da fila de destino você pode utilizar o comando `aws sqs get-queue-url --queue-name demoqueue_dest | jq .QueueUrl`
 

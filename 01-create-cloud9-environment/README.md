@@ -75,8 +75,8 @@ seu IDE.
     ![img/installserverless.png](img/installserverless.png)
 2.  Execute o comando `sudo apt update -y && sudo apt  install jq -y` para instalar o software que irá nos ajudar a ler e manipular Jsons no terminal
 3.  Execute o comando `npm install -g c9` para baixar a extenãp que ajudará o Cloud9 a lidar melhor com o como abrir arquivos no IDE.
-4.  Execute o comando `git clone https://github.com/vamperst/fiap-cloud-computing-tutorials.git` para clonar o repositório com os exercicios.
-5.  Execute o comando `cd fiap-cloud-computing-tutorials/` para entrar na pasta criada pelo git
+4.  Execute o comando `git clone https://github.com/vamperst/FIAP-Autoglass-Serverless.git` para clonar o repositório com os exercicios.
+5.  Execute o comando `cd FIAP-Autoglass-Serverless/` para entrar na pasta criada pelo git
 6.  Execute o comando `cd 01-create-cloud9-environment` para entrar na pasta com os scripts de Configuração.
 7.  Precisamos aumentar o tamanho do volume(HD) do cloud9. Para isso execute o comando  `sh resize.sh`
    ![img/resizeEBS](img/resizeEBS.png)
