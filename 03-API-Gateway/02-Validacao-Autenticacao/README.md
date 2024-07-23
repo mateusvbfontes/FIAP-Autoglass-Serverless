@@ -233,16 +233,17 @@ def lambda_handler(event, context):
     4. Requisições por mês: `100000`
 
 ![](img/33.png)
-47. Clique em `Criar plano de uso` no final da página
+
+47. Clique em `Criar plano de uso` no final da página.
 48. Na aba `Estagios Associados` clique em `Adicionar estágio`
 49. Preencha segundo a descrição:
     1.  API: `rest-api-with-validation`
     2.  Estágio: `dev`
-    
-    ![](img/34.png)
 
-50. Na aba `chaves de APi associadas` clique em `Adicionar chave de API`
-51. Selecione a chave fiap-api récem criada e clique em `Adicionar chave de API`
+![](img/34.png)
+
+1.  Na aba `chaves de APi associadas` clique em `Adicionar chave de API`
+2.  Selecione a chave fiap-api récem criada e clique em `Adicionar chave de API`
 
 ![](img/35.png)
 
