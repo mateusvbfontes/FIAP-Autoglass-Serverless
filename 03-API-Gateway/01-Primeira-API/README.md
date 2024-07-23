@@ -10,11 +10,11 @@ OBJETIVO: Criar a primeira api no serviço [Amazon API Gateway](https://aws.amaz
    
    ![](img/2.png)
 
-3. Leia e clique em OK na mensagem
+3. Clique em `API de exemplo`
    
    ![](img/3.png)
 
-4. No canto inferior direito da tela clique em `Importar`
+4. No canto inferior direito da tela clique em `Criar API`
 5. Sua API ficará com a seguinte estrutura:
    
    ![](img/4.png)
@@ -33,7 +33,7 @@ OBJETIVO: Criar a primeira api no serviço [Amazon API Gateway](https://aws.amaz
     
     ![](img/7.png)
 
-10. Agora sim é hora de implantar a API para ter uma URL a ser chamada. Para isso clique em `Ações` no superior esquerdo da tela e clique em `Implantar API`
+10. Agora sim é hora de implantar a API para ter uma URL a ser chamada. Para isso clique em `Implantar API` no canto superior direito da tela.
     
     ![](img/8.png)
 
@@ -41,9 +41,12 @@ OBJETIVO: Criar a primeira api no serviço [Amazon API Gateway](https://aws.amaz
 
     ![](img/9.png)
 
-12. Clique em `Implante`.
+12. Clique em `Implantar`.
 13. Pronto você criou sua primeira API no API Gateway e a URL para chamar esta no topo da tela.
-14. Vamos executar chamadas de teste via POSTMAN para testar a API externamente. Clique na aba `Exportar` do récem criado estagio Test. Na opção `Exportar como Swagger + extensões do Postman` clique em `YAML` para baixar o arquivo de configuração do postman diretamento do api gateway.
+14. Vamos executar chamadas de teste via POSTMAN para testar a API externamente. Clique no superior direito em `Ações do estagio` na aba `Exportar` do récem criado estagio Test. Escolha as opções:
+    - Tipo de especificação de API: `Swagger`
+    - Formato: `YAML`
+    - Extemsões: `Exportar com extensões Postman`
 
     ![](img/10.png)
 
