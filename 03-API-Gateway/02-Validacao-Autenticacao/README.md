@@ -10,7 +10,7 @@ Nesse exercicio você irá montar uma arquitetura de RESTFull API com backend em
 01. Primeiro você vai criar a função lambda que irá receber os eventos da API. Para isso vá para o console do [Lambda](https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions) e clique em `Criar função`.
 2.  Preencha os campos com os seguintes valores:
     1. Nome da função: `rest-api-validation`
-    2. Tempo de execução: `Python 3.9`
+    2. Tempo de execução: `Python 3.12`
     3. Permissões: `Usar uma função existente`
     4. Função existente: `LabRole`
 
@@ -40,33 +40,32 @@ def lambda_handler(event, context):
 ![](img/3.png)
 8. Preencha os campos da seguinte maneira e clique em `Criar API`:
    1. Nome da API: `rest-api-with-validation`
-   2. Tipo de endpoint: `Otimizado para fronteiras`
+   2. Tipo de endpoint: `Regional`
 
 ![](img/4.png)
 
-9. Clique em `Ações` e então clique em `Criar recurso` para criar o caminho de usuarios da API.
+1. Clique em `Criar recurso` para criar o caminho de usuarios da API.
     
     ![](img/5.png)
 
-10. Preencha da seguinte maneira e clique em `Criar recurso`.
+2.  Preencha da seguinte maneira e clique em `Criar recurso`.
     1.  Nome do recurso: `user`
-    2.  Caminho do recurso: `user`
-    3. Ativar CORS do API Gateway: Selecionado
-
-![](img/6.png)
-
-11. De volta ao painel da api com o recurso user récem criado selecionado clique novamente em `Ações` e então clique em `Criar recurso`.
+    2. Ativar CORS do API Gateway: Selecionado
 
 ![](img/7.png)
 
-12. Preencha da seguinte maneira e clique em `Criar recurso`.
-    1. Nome do recurso: `user creation`
-    2. Caminho do recurso: `create`
-    3. Ativar CORS do API Gateway: Selecionado
-13. Com o recurso create récem criado clique em `Ações` e então clique em `Criar Método`
-14. Escolha `POST` na lista proposta.
+11. De volta ao painel da api com o recurso user récem criado selecionado clique novamente em `Ações` e então clique em `Criar recurso`.
 
-    ![](img/8.png)
+![](img/6.png)
+
+12. Preencha da seguinte maneira e clique em `Criar recurso`.
+    1. Caminho do recurso: `create`
+    2. Ativar CORS do API Gateway: Selecionado
+13. Com o recurso create récem criado clique em `Criar Método` do lado direito da tela.
+    
+    ![](img/7-2.png)
+
+14. Escolha `POST` na lista proposta.
 
 15. Preencha a integração conforme as informações abaixo, clique em `Salvar` e de OK na mensagem:
     1.  Tipo de Integração: `Função Lambda`
@@ -77,10 +76,9 @@ def lambda_handler(event, context):
 
 ![](img/9.png)
 ![](img/10.png)
-![](img/11.png)
 
-16. Na lateral esquerda clique em `Modelos`.
-17. Clique em `Criar`.
+1.  Na lateral esquerda clique em `Modelos`.
+2.  Clique em `Criar modelo`.
 
 ![](img/12.png)
 
@@ -117,10 +115,10 @@ def lambda_handler(event, context):
     }
 }       
 ```
-19. Clique em `Criar Modelo` para salvar o modelo de json schema que irá validar a chamada de criação de usuario da sua API. Esse modelo não permite nenhum campo além dos descritos e todos são obigatórios. Além disso é definido que o campo age pode apenas receber numeros inteiros, dateofregistry tem que receber uma data com o formato YYYY-mm-DD e name tem que ser uma String(texto).
-20. Na lateral esquerda clique em `Recursos`
-21. Clique no `POST` abaixo do recurso create.
-22. Clique em `Solicitação de método`
+1.  Clique em `Criar` para salvar o modelo de json schema que irá validar a chamada de criação de usuario da sua API. Esse modelo não permite nenhum campo além dos descritos e todos são obigatórios. Além disso é definido que o campo age pode apenas receber numeros inteiros, dateofregistry tem que receber uma data com o formato YYYY-mm-DD e name tem que ser uma String(texto).
+2.  Na lateral esquerda clique em `Recursos`
+3.  Clique no `POST` abaixo do recurso create.
+4.  Clique em `Solicitação de método` e clique em `Editar` no lado direito da tela.
 
 ![](img/13.png)
 
@@ -132,37 +130,40 @@ def lambda_handler(event, context):
     
 ![](img/15.png)
 
-25. Preencha com:
+25. Preencha com os valores abaixo e clique em `Salvar`:
     1. Tipo de conteúdo: `application/json`
-    2. Nome do modelo: `UserCreateRequest`
-    3. Clique no sinal de check no final da linha para salvar.
+    2. Modelo: `UserCreateRequest`
 
 ![](img/16.png)
 
-26. Para facilitar a vida de quem integra vamos criar um padrão de mensagem de erro para validação de corpo de mensagem onde a causa do erro apareça na resposta. Para tal, clique em `Respostas do gateway` na lateral esquerda do painel do api gateway.
-27. Selecione `Corpo de solicitação incorreto`, em modelos de resposta clique em `application/json` e clique em editar.
+1.  Para facilitar a vida de quem integra vamos criar um padrão de mensagem de erro para validação de corpo de mensagem onde a causa do erro apareça na resposta. Para tal, clique em `Respostas do gateway` na lateral esquerda do painel do api gateway.
+2.  Selecione `Corpo de solicitação incorreto`, em modelos de resposta clique em `application/json` e clique em editar.
    
     ![](img/24.png)
 
-28. Cole no `Corpo do modelo de resposta` o seguinte json:
+3.  Cole no `Corpo do modelo de resposta` o seguinte json:
 ``` json
 {"message": "$context.error.message", "error": "$context.error.validationErrorString"}
 ```
-29. Clique em `Salvar`.
-30. Na lateral esquerda clique em `Recursos`.
+1.  Clique em `Salvar alterações`.
+2.  Na lateral esquerda clique em `Recursos`.
     
-31. Hora de fazer o deploy da sua API. Clique em `Ações` e `Implantar API`
-    ![](img/17.png)
+3.  Hora de fazer o deploy da sua API. Clique em `Implantar API`
 
-32. Na tela que aparece preencha como descrito:
+4.  Na tela que aparece preencha como descrito:
     1. Estágio de implantação: `[Novo estágio]`
     2. Nome do estágio: `dev`
-    3. Clique em `Implante`
+    3. Clique em `Implantar`
 
 ![](img/18.png)
 
-28. Para fazer chamadas de teste clique na aba `Exportar` e clique em `Yaml` em `Exportar como Swagger + extensões do Postman` para baixar um arquivo a ser utilizado no Postman.
+28. Vamos executar chamadas de teste via POSTMAN para testar a API externamente. Clique no superior direito em `Ações do estagio` na aba `Exportar` do récem criado estagio Test. Escolha as opções:
+    - Tipo de especificação de API: `Swagger`
+    - Formato: `YAML`
+    - Extemsões: `Exportar com extensões Postman`
+    
     ![](img/19.png)
+
 29. No Postman clique em `Import` e em `Upload Files` selecione o arquivo recem baixado.
     
     ![](img/20.png)
@@ -193,7 +194,7 @@ def lambda_handler(event, context):
 
 35. Faça testes com outros campos e formatos de envios para ver o comportamento das validações. Como por exemplo tentar colocar um mês com número acima de 12.
 36. Devolta ao painel da sua récem criada api no API Gateway no navegador, clique em `Chaves de API`.
-37. Clique em `Açoes` e `Criar chave de API`
+37. Clique em `Criar chave de API`
     
     ![](img/26.png)
 
@@ -212,16 +213,16 @@ def lambda_handler(event, context):
     ![](img/29.png)
 
 41. Clique em `Solicitação de método` para editar a necessidade de chaves.
-42. Edite o campo `Chave de API obrigatória` para ficar com o valor `true` e salve o check do final da linha.
+42. Edite o campo `Chave de API obrigatória` para ficar marcado e salve a alteração.
 
 ![](img/30.png)
 
-43. Faça a implantação da API para fazer valer a alteração. Clique em ações e então `Implantar API`. Selecione o estágio `dev` e clique em `Implante`.
+43. Faça a implantação da API para fazer valer a alteração. Clique em ações e então `Implantar API`. Selecione o estágio `dev` e clique em `Implantar`.
 
 ![](img/31.png)
 
-44. Agora é hora de criar o plano de uso da API e adicionar a chave recem criada como permitida. Para iniciar o processo, na lateral esquerda clique em `Planos de uso`.
-45. Clique em `Criar`
+44. Agora é hora de criar o plano de uso da API e adicionar a chave recem criada como permitida. Para iniciar o processo, na lateral esquerda clique em `Planos de utilização`.
+45. Clique em `Criar plano de uso`
     
     ![](img/32.png)
 
@@ -232,43 +233,25 @@ def lambda_handler(event, context):
     4. Requisições por mês: `100000`
 
 ![](img/33.png)
-
-47. Clique em `Adicionar estágio de API`
-48. Preencha segundo a descrição:
+47. Clique em `Criar plano de uso` no final da página
+48. Na aba `Estagios Associados` clique em `Adicionar estágio`
+49. Preencha segundo a descrição:
     1.  API: `rest-api-with-validation`
     2.  Estágio: `dev`
-49. Clique no check no final da linha
     
     ![](img/34.png)
 
-50. Clique em `Configurar limitação de método` e em seguida clique em `Adicionar recurso/método`.
-51. Preencha segundo a descrição:
-    1.  Recurso: `*`
-    2.  Método: `*`
-    3. Taxa: `1000`
-    4. Pico: `1500`
+50. Na aba `chaves de APi associadas` clique em `Adicionar chave de API`
+51. Selecione a chave fiap-api récem criada e clique em `Adicionar chave de API`
 
 ![](img/35.png)
 
-52. Clique no check no final da linha e após em `Fechar`
-    
-    ![](img/36.png)
 
-53. Valide que sua página de `Estagios de API associados` esta como na imagem e clique em próximo.
-
-![](img/37.png)
-
-54. Clique em `Adicionar chave de API ao plano de uso`
-55. Digite `fiap-api` na pesquisa e selecione a chave recem criada.
-
-![](img/38.png)
-
-56. Clique em `Concluído`.
-57. Agora vá até o Postman para testar. Na lateral esquerda clique em `Collections` e expanda `rest-api-with-validation` para clicar em `POST /user/create`
+1.  Agora vá até o Postman para testar. Na lateral esquerda clique em `Collections` e expanda `rest-api-with-validation` para clicar em `POST /user/create`
     
     ![](img/39.png)
 
-58. Clique em `Send` na lateral direita superior para ver que não consegue mais fazer a chamada sem autorização.
+2.  Clique em `Send` na lateral direita superior para ver que não consegue mais fazer a chamada sem autorização.
 
 ![](img/40.png)
 
