@@ -49,6 +49,8 @@ OBJETIVO: Criar a primeira api no serviço [Amazon API Gateway](https://aws.amaz
     - Extemsões: `Exportar com extensões Postman`
 
     ![](img/10.png)
+    
+    ![](img/10-2.png)
 
 15. Abra o Postman na sua maquina local. 
 16. Dentro do Postman clique em `Import`.
