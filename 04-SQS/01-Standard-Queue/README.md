@@ -45,7 +45,7 @@
 9. Para execução do lambda rode o comando `sls invoke -l -f sqsHandler` no terminal
 10. Enquando espera o comando terminar pode observar no painel do SQS as mensagens se movendo a cada atualização manual pelo canto direito superior. Lembre que cada execução move 1000 por definição no código. [Link para painel SQS](https://console.aws.amazon.com/sqs/v2/home?region=us-east-1#/queues)
     ![alt](img/lambda-02-1.png)
-11. Vá até o painel de [regras do cloudwath](https://us-east-1.console.aws.amazon.com/events/home?region=us-east-1#/rules?redirect_from_cwe=true) que verá a regra de execução baseada em tempo criada com o serverless framework. A regra tem nome iniciado em `sqstest`
-![img/lambda-03.png](img/lambda-03.png)
+11. Vá até o painel de [regras do eventbridge](https://us-east-1.console.aws.amazon.com/events/home?region=us-east-1#/rules) que verá a regra de execução baseada em tempo criada com o serverless framework. A regra tem nome iniciado em `sqstest`
+
 12. Se esperar alguns execuções vai ver que a fila principal vai zerar.
 13. Execute o comando `sls remove` no terminal para remover o que foi criado.
