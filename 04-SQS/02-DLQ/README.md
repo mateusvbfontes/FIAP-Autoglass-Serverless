@@ -8,9 +8,28 @@
 ![img/dlq-02.png](img/dlq-02.png)
 ![img/dlq-02-1.png](img/dlq-02-1.png)
 5. Altere o arquivo put.py colocando a URL da fila demoqueue nele, para abrir utilize `c9 open put.py` no terminal do cloud9. Para pegar a URL você pode entrar no console do SQS ou através do comando `aws sqs get-queue-url --queue-name demoqueue | jq .QueueUrl`
-6. execute o comando `python3 put.py` no terminal
-7. Faça as alterações no arquivo consumer.py(`c9 open consumer.py`)conforme a imagem a baixo, não esquecendo de colcoar sua URL da demoqueue:
+6. Antes de qualquer execução, limpe o conteúdo de todas as filas que serão utilizadas com o comando abaixo:
+``` shell
+for queue_url in $(aws sqs list-queues --query 'QueueUrls[*]' --output text); do
+    aws sqs purge-queue --queue-url "$queue_url"
+    echo "Purged queue: $queue_url"
+done
+```
+
+<blockquote>
+Este comando faz o seguinte:
+
+1. aws sqs list-queues --query 'QueueUrls[*]' --output text: Lista todas as URLs das filas do SQS.
+2. for queue_url in $(...); do ... done: Itera sobre cada URL de fila.
+3. aws sqs purge-queue --queue-url "$queue_url": Apaga todas as mensagens da fila específica.
+4. echo "Purged queue: $queue_url": Imprime uma mensagem indicando que a fila foi purgada.
+</blockquote>
+
+7. execute o comando `python3 put.py` no terminal
+8. Faça as alterações no arquivo consumer.py(`c9 open consumer.py`)conforme a imagem a baixo, não esquecendo de colcoar sua URL da demoqueue:
+
 ![img/dlq-03.png](img/dlq-03.png)
-8. Execute o comando `python3 consumer.py` no terminal
-9. Observe que enquanto roda o script a fila DLQ é populada no console do SQS. [Link para painel SQS](https://console.aws.amazon.com/sqs/v2/home?region=us-east-1#/queues)
+
+1. Execute o comando `python3 consumer.py` no terminal
+2. Observe que enquanto roda o script a fila DLQ é populada no console do SQS. [Link para painel SQS](https://console.aws.amazon.com/sqs/v2/home?region=us-east-1#/queues)
     ![img/dlq-04.png](img/dlq-04.png)
