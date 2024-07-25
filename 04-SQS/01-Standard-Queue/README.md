@@ -42,7 +42,7 @@
 ![img/lambda-02.png](img/lambda-02.png)
 7. rode o comando `sls deploy`
 8. Coloque alguns itens na fila com o comando `python3 put.py`, lembrando que cada execução do lambda criado pode consumir até 1000 posições da fila sqs.
-9. Para execução do lambda rode o comando `sls invoke -l -f sqsHandler` no terminal
+9. Para execução do lambda rode o comando `sls invoke -l -f sqshandler` no terminal
 10. Enquando espera o comando terminar pode observar no painel do SQS as mensagens se movendo a cada atualização manual pelo canto direito superior. Lembre que cada execução move 1000 por definição no código. [Link para painel SQS](https://console.aws.amazon.com/sqs/v2/home?region=us-east-1#/queues)
     ![alt](img/lambda-02-1.png)
 11. Se esperar alguns execuções vai ver que a fila principal vai zerar.
