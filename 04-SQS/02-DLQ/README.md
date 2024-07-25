@@ -30,6 +30,6 @@ Este comando faz o seguinte:
 
 ![img/dlq-03.png](img/dlq-03.png)
 
-1. Execute o comando `python3 consumer.py` no terminal
-2. Observe que enquanto roda o script a fila DLQ é populada no console do SQS. [Link para painel SQS](https://console.aws.amazon.com/sqs/v2/home?region=us-east-1#/queues)
+9. Execute o comando `python3 consumer.py` no terminal
+10. Observe que enquanto roda o script a fila DLQ é populada no console do SQS. [Link para painel SQS](https://console.aws.amazon.com/sqs/v2/home?region=us-east-1#/queues)
     ![img/dlq-04.png](img/dlq-04.png)
