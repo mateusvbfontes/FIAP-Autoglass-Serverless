@@ -1,0 +1,30 @@
+service: atividadefinal
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.11
+  memorySize: 128
+  region: 'us-east-1'
+  iam:
+    role: !Sub arn:aws:iam::${AWS::AccountId}:role/LabRole
+
+
+functions:
+  sqsHandler:
+    handler: handler.sqs
+    events:
+      - sqs:
+          arn:
+            arn:aws:sqs:us-east-1:041854577888:feedback
+          batchSize: 1
+          enabled: true
+  feedback:
+    handler: handler.api
+    events:
+      - http:
+          path: feedback
+          method: post
+          request:
+            schemas:
+              application/json: ${file(./feedback_request.json)}
