@@ -28,7 +28,7 @@ Você irá utilizar 2 ferramentas para desenvolver os laboratorios:
 ![](img/codespaces2.png)
 
 7. Deixe as opções da tela da seguinte forma e clique em `Create Codespace`:
-   1. repository: `fiap-arquitetura-compute-e-storage`
+   1. repository: `FIAP-Autoglass-Serverless`
    2. Branch: `master`
    3. Dev container configuration: `FIAP Lab`
    4. Region: `US East`
