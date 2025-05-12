@@ -25,7 +25,7 @@
       ]
     }
   },
-  "postCreateCommand": "chmod +x /workspaces/fiap-arquitetura-compute-e-storage/.devcontainer/script.sh && bash /workspaces/fiap-arquitetura-compute-e-storage/.devcontainer/script.sh",
+  "postCreateCommand": "chmod +x /workspaces/FIAP-Autoglass-Serverless/.devcontainer/script.sh && bash /workspaces/fiap-arquitetura-compute-e-storage/.devcontainer/script.sh",
   "settings": {
     "terminal.integrated.defaultProfile.linux": "bash"
   }
