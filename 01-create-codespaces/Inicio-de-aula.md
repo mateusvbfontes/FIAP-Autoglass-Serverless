@@ -57,3 +57,10 @@ Execute os passos abaixo no inicio de cada aula:
 12. Em `AWS CLI` clique em `Show` para ver as credenciais de acesso a conta AWS Academy.
     ![](img/ac6.png)
 13. Copie as credenciais e cole no arquivo `credentials` que você abriu no passo 6 no codespaces. Após isso, salve o arquivo e feche.
+
+    ![](img/ac7.png)
+
+14. Para testar, execute o comando `aws s3 ls` no terminal do codespaces. Se tudo estiver correto, você verá a lista de buckets do S3 que acabou de criar.
+    
+**Pronto! Seu ambiente está configurado e pronto para começar os laboratórios.**
+
