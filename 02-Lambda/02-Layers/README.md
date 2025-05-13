@@ -1,5 +1,7 @@
 # Aula 02.2 - Lambda Layers
 
+**Antes de começar, execute os passos abaixo para configurar o ambiente caso não tenha feito isso ainda na aula de HOJE: [Preparando Credenciais](../../01-create-codespaces/Inicio-de-aula.md)**
+
 
 1. No terminal do IDE criado no cloud9 execute o comando `cd ~/environment/FIAP-Autoglass-Serverless/02-Lambda/02-Layers/` para entrar na pasta que fara este exercicio.
    

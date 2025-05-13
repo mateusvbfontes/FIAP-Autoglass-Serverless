@@ -1,5 +1,6 @@
 # Aula 02.1 - Lambda
 
+**Antes de começar, execute os passos abaixo para configurar o ambiente caso não tenha feito isso ainda na aula de HOJE: [Preparando Credenciais](../../01-create-codespaces/Inicio-de-aula.md)**
 
 1. No terminal do IDE criado no cloud9 execute o comando `cd ~/environment/FIAP-Autoglass-Serverless/02-Lambda/01-Intro/` para entrar na pasta que fara este exercicio.
 2. Iniciar o repositório de trabalho `sls create --template "aws-python3"`
