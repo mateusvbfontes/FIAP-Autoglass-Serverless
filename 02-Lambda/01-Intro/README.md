@@ -2,12 +2,12 @@
 
 **Antes de começar, execute os passos abaixo para configurar o ambiente caso não tenha feito isso ainda na aula de HOJE: [Preparando Credenciais](../../01-create-codespaces/Inicio-de-aula.md)**
 
-1. No terminal do IDE criado no cloud9 execute o comando `cd ~/environment/FIAP-Autoglass-Serverless/02-Lambda/01-Intro/` para entrar na pasta que fara este exercicio.
+1. No terminal do IDE criado no codespaces execute o comando `cd /workspaces/FIAP-Autoglass-Serverless/02-Lambda/01-Intro/` para entrar na pasta que fara este exercicio.
 2. Iniciar o repositório de trabalho `sls create --template "aws-python3"`
  
   ![img/slscreate.png](img/slscreate.png)
 
-3. Abra o arquivo serverless.yml no IDE com o comando `c9 open serverless.yml`
+3. Abra o arquivo serverless.yml no IDE com o comando `code serverless.yml`
 4. Altere o arquivo para que fique como na imagem abaixo. Para salvar utilize CTRL+S.
    
    ![](img/yml1.png)
@@ -20,7 +20,7 @@
 
   ![img/slsinvoke.png](img/slsinvoke.png)
 
-8. Execute o comando `c9 open handler.py` e altere a versão do retorno da função para 1.1 no arquivo "handler.py" como na imagem e salve com as teclas "CTRL + S"
+8. Execute o comando `code handler.py` e altere a versão do retorno da função para 1.1 no arquivo "handler.py" como na imagem e salve com as teclas "CTRL + S"
   ![img/altereversao.png](img/altereversao.png)
 9.  Faça um teste local da sua função no terminal com o comando `sls invoke local -f hello` 
   ![img/slsinvokelocal.png](img/slsinvokelocal.png)

@@ -3,12 +3,12 @@
 **Antes de começar, execute os passos abaixo para configurar o ambiente caso não tenha feito isso ainda na aula de HOJE: [Preparando Credenciais](../../01-create-codespaces/Inicio-de-aula.md)**
 
 
-1. No terminal do IDE criado no cloud9 execute o comando `cd ~/environment/FIAP-Autoglass-Serverless/02-Lambda/02-Layers/` para entrar na pasta que fara este exercicio.
+1. No terminal do IDE criado no codespaces execute o comando `cd /workspaces/FIAP-Autoglass-Serverless/02-Lambda/02-Layers/` para entrar na pasta que fara este exercicio.
    
 2. Iniciar o repositório de trabalho `sls create --template "aws-python3"`.
   
     ![img/slscreate.png](img/slscreate.png)
-3. Crie um arquivo chamado requirements.txt com o conteúdo 'boto3' Crie o arquivo com o comando `c9 open requirements.txt`. Salve com CTRL+S.
+3. Crie um arquivo chamado requirements.txt com o conteúdo 'boto3' Crie o arquivo com o comando `code requirements.txt`. Salve com CTRL+S.
        
       ![img/boto3.png](img/boto3.png)
 
@@ -17,9 +17,9 @@
 6. Crie uma pasta chamada `layer` utilizando o comando no terminal `mkdir layer`.
 7. Execute o comando `pip3 install -r requirements.txt -t layer` para instalar todas as dependencias listadas no arquivo requirements.txt dentro da pasta layer.
     ![img/pipinstall.png](img/pipinstall.png)
-8. Execute o comando `c9 open handler.py` e altere o topo do arquivo handler.py para que fique como na imagem:
+8. Execute o comando `code handler.py` e altere o topo do arquivo handler.py para que fique como na imagem:
    ![img/topoarquivopython.png](img/topoarquivopython.png)
-9.  Execute o comando `c9 open serverless.yml`, No serverless.yml deixe o arquivo como na imagem, podem apagar todo o conteudo existente: 
+9.  Execute o comando `code serverless.yml`, No serverless.yml deixe o arquivo como na imagem, podem apagar todo o conteudo existente: 
    ![img/yamllayers.png](img/yamllayers.png)
 10. Fazer deploy da função criada `sls deploy`
    ![img/slsdeploy.png](img/slsdeploy.png) 
