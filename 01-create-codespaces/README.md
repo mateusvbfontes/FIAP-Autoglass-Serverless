@@ -66,10 +66,14 @@ Você irá utilizar 2 ferramentas para desenvolver os laboratorios:
 7. Clique no link iniciando com `Academy-CUR` para acessar a conta AWS.Caso peça consentimento clique em `I agree` e execute o passo novamente.
    ![](img/academy8.png)
 8. Essa é a tela para acessar sua conta AWS. Cada sessão terá 4 horas. Após esse tempo você terá que começar outra sessão, mas os dados gravados dentro da conta AWS ficam salvos até o final do curso ou entrega do trabalho final da disciplina. Clique em `Start Lab` para iniciar uma sessão. Esse processo pode demorar alguns minutos.
+   
    ![](img/academy5.png)
+
    ![](img/academy6.png)
+
 9. Quando tudo estiver pronto a bolinha ao lado do escrito `AWS` no superior esquerdo da tela ficará verde como na imagem abaixo. Apenas clique em `AWS` para abrir a conta aws em outra aba do navegador.
-![](img/academy7.png)
+
+   ![](img/academy7.png)
 
 ### AWS
 
