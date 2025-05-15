@@ -9,13 +9,13 @@ Você irá utilizar 2 ferramentas para desenvolver os laboratorios:
 ### Github Codespaces
 1. Vamos utilizar sua conta do github para acessar o Codespaces. Caso não tenha uma conta, crie uma em [github.com](github.com).
 2. Primeiro vamos fazer o fork do repositório que contém os exercícios da disciplina. Acesse o link [FIAP-Autoglass-Serverless](https://github.com/vamperst/FIAP-Autoglass-Serverless/tree/master)
-3. No canto superior da tela haverá o botão `Forkear` para você copiar o repositório para sua conta do github. Clique nele para copiar o repositório para sua conta.
+3. No canto superior da tela haverá o botão `Fork` para você copiar o repositório para sua conta do github. Clique nele para copiar o repositório para sua conta.
 
-![](img/fork1.png)
+![](img/fork1-1.png)
 
-4. Após clicar no botão, você será redirecionado para a tela de fork do repositório. Deixe a opção `Copy the master branch only` desmarcada como no print para que copie todas as branches do repositório. Clique em `Create Fork` para copiar o repositório para sua conta.
+1. Após clicar no botão, você será redirecionado para a tela de fork do repositório. Deixe a opção `Copy the master branch only` desmarcada como no print para que copie todas as branches do repositório. Clique em `Create Fork` para copiar o repositório para sua conta.
 
-![](img/fork2.png)
+![](img/fork2-1.png)
 
 
 5. Agora vamos criar de fato o Codespaces. Acesse o link [Github Codespaces](https://github.com/codespaces) e clique em `Get Started for free`.
