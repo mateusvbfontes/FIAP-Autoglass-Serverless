@@ -4,7 +4,7 @@
 
 OBJETIVO: Criar a primeira api no serviço [Amazon API Gateway](https://aws.amazon.com/pt/api-gateway/) utilizando a estrutura de exemplo do painel.
 
-1. Abra o serviço [API Gateway](https://us-east-1.console.aws.amazon.com/apigateway/main/apis?region=us-east-1)
+1. Abra o serviço [API Gateway](https://us-east-1.console.aws.amazon.com/apigateway/main/apis?region=us-east-1) e clique em `Criar API` no canto superior direito da tela.
     
     ![](img/1.png)
 
@@ -54,7 +54,7 @@ OBJETIVO: Criar a primeira api no serviço [Amazon API Gateway](https://aws.amaz
     
     ![](img/10-2.png)
 
-15. Abra o Postman na sua maquina local. 
+15. Abra o Postman no seu [navegador](https://web.postman.co/). Caso não tenha cadastro, faça sua conta gratuitamente. 
 16. Dentro do Postman clique em `Import`.
     
     ![](img/11.png)

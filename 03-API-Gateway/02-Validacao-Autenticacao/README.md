@@ -37,27 +37,29 @@ def lambda_handler(event, context):
 ```
 ![](img/2.png)
 
-5. Clique em `Deploy` no topo do IDE para atualizar o código da função.
+5. Clique em `Deploy` no lado esquerdo do IDE para atualizar o código da função.
 6. Hora de criar a api que irá utilizar esse lambda como backend. Vá para o [painel do api gateway](https://us-east-1.console.aws.amazon.com/apigateway/main/apis?region=us-east-1) e clique em `Criar API` no canto superiror direito.
 7. Em `API REST` clique em `compilar`
+
 ![](img/3.png)
+
 8. Preencha os campos da seguinte maneira e clique em `Criar API`:
    1. Nome da API: `rest-api-with-validation`
    2. Tipo de endpoint: `Regional`
 
 ![](img/4.png)
 
-1. Clique em `Criar recurso` para criar o caminho de usuarios da API.
+9. Clique em `Criar recurso` para criar o caminho de usuarios da API.
     
     ![](img/5.png)
 
-2.  Preencha da seguinte maneira e clique em `Criar recurso`.
+10. Preencha da seguinte maneira e clique em `Criar recurso`.
     1.  Nome do recurso: `user`
     2. Ativar CORS do API Gateway: Selecionado
 
 ![](img/7.png)
 
-11. De volta ao painel da api com o recurso user récem criado selecionado clique novamente em `Ações` e então clique em `Criar recurso`.
+11. De volta ao painel da api com o recurso user récem criado selecionado clique novamente em `Criar recurso`.
 
 ![](img/6.png)
 
@@ -70,18 +72,18 @@ def lambda_handler(event, context):
 
 14. Escolha `POST` na lista proposta.
 
-15. Preencha a integração conforme as informações abaixo, clique em `Salvar` e de OK na mensagem:
+15. Preencha a integração conforme as informações abaixo, clique em `Criar Método`:
     1.  Tipo de Integração: `Função Lambda`
     2.  Região do Lambda: `us-east-1`
     3. Função Lambda: `rest-api-validation`
-    4. Usar a integração de proxy do Lambda: Selecionado
+    4. Usar a integração de proxy do Lambda: **Selecionado**
 
 
 ![](img/9.png)
 ![](img/10.png)
 
-1.  Na lateral esquerda clique em `Modelos`.
-2.  Clique em `Criar modelo`.
+14.  Na lateral esquerda clique em `Modelos`.
+15. Clique em `Criar modelo`.
 
 ![](img/12.png)
 
@@ -118,14 +120,14 @@ def lambda_handler(event, context):
     }
 }       
 ```
-1.  Clique em `Criar` para salvar o modelo de json schema que irá validar a chamada de criação de usuario da sua API. Esse modelo não permite nenhum campo além dos descritos e todos são obigatórios. Além disso é definido que o campo age pode apenas receber numeros inteiros, dateofregistry tem que receber uma data com o formato YYYY-mm-DD e name tem que ser uma String(texto).
-2.  Na lateral esquerda clique em `Recursos`
-3.  Clique no `POST` abaixo do recurso create.
-4.  Clique em `Solicitação de método` e clique em `Editar` no lado direito da tela.
+19.  Clique em `Criar` para salvar o modelo de json schema que irá validar a chamada de criação de usuario da sua API. Esse modelo não permite nenhum campo além dos descritos e todos são obigatórios. Além disso é definido que o campo age pode apenas receber numeros inteiros, dateofregistry tem que receber uma data com o formato YYYY-mm-DD e name tem que ser uma String(texto).
+20. Na lateral esquerda clique em `Recursos`
+21. Clique no `POST` abaixo do recurso create.
+22. Clique em `Solicitação de método` e clique em `Editar` no lado direito da tela.
 
 ![](img/13.png)
 
-23. Em `Validador de solicitação` escolha a opção `Validar corpo, parâmetros de string de consulta e cabeçalhos` e clique no sinal de check no final da linha.
+1.  Em `Validador de solicitação` escolha a opção `Validar corpo, parâmetros de string de consulta e cabeçalhos`.
 
 ![](img/14.png)
 
@@ -139,12 +141,12 @@ def lambda_handler(event, context):
 
 ![](img/16.png)
 
-1.  Para facilitar a vida de quem integra vamos criar um padrão de mensagem de erro para validação de corpo de mensagem onde a causa do erro apareça na resposta. Para tal, clique em `Respostas do gateway` na lateral esquerda do painel do api gateway.
-2.  Selecione `Corpo de solicitação incorreto`, em modelos de resposta clique em `application/json` e clique em editar.
+26.  Para facilitar a vida de quem integra vamos criar um padrão de mensagem de erro para validação de corpo de mensagem onde a causa do erro apareça na resposta. Para tal, clique em `Respostas do gateway` na lateral esquerda do painel do api gateway.
+27. Selecione `Corpo de solicitação incorreto`, em modelos de resposta clique em `application/json` e clique em editar.
    
     ![](img/24.png)
 
-3.  Cole no `Corpo do modelo de resposta` o seguinte json:
+28. Cole no `Corpo do modelo de resposta` o seguinte json:
 ``` json
 {"message": "$context.error.message", "error": "$context.error.validationErrorString"}
 ```
@@ -245,8 +247,8 @@ def lambda_handler(event, context):
 
 ![](img/34.png)
 
-1.  Na aba `chaves de APi associadas` clique em `Adicionar chave de API`
-2.  Selecione a chave fiap-api récem criada e clique em `Adicionar chave de API`
+50.  Na aba `chaves de APi associadas` clique em `Adicionar chave de API`
+51. Selecione a chave fiap-api récem criada e clique em `Adicionar chave de API`
 
 ![](img/35.png)
 
