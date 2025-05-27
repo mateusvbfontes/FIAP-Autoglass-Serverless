@@ -208,23 +208,23 @@ functions:
 
 
 Citações:
-[1] https://forum.serverless.com/t/put-methods-under-existing-api-in-aws-api-gateway/2985
-[2] https://www.fernandomc.com/posts/schema-validation-serverless-framework/
-[3] https://www.serverless.com/plugins/serverless-add-api-key
-[4] https://www.serverlessguru.com/blog/request-validation-with-api-gateway-models
-[5] https://forum.serverless.com/t/creating-api-keys/847
-[6] https://blog.codeops.tech/validate-your-api-request-at-the-api-gateway-using-serverless-framework
-[7] https://www.serverless.com/framework/docs/providers/aws/guide/intro
-[8] https://aws.plainenglish.io/the-serverless-trap-5-aws-lambda-limitations-they-dont-tell-you-about-1dcc45232cc4
-[9] https://docs.databricks.com/aws/en/compute/serverless/limitations
-[10] https://www.serverless.com/framework/docs/providers/aws/events/apigateway
-[11] https://forum.serverless.com/t/how-do-you-add-a-request-validator-to-api-gateway/12923
-[12] https://forum.serverless.com/t/response-schema-validators/8870
-[13] https://newrelic.com/blog/best-practices/what-is-serverless-architecture
-[14] https://gbh.tech/challenges-of-implementing-a-serverless-architecture/
-[15] https://www.reddit.com/r/serverless/comments/1b8zc51/senior_developers_i_know_are_always_hating_on/
-[16] https://techdocs.broadcom.com/us/en/ca-enterprise-software/layer7-api-management/api-gateway/10-1/policy-assertions/assertion-palette/message-validation-transformation-assertions/validate-json-schema-assertion-message-validation-transformation.html
-[17] https://cloud.google.com/api-gateway/docs/authenticate-api-keys
-[18] https://aws.amazon.com/marketplace/pp/prodview-3mpatxr6fwcca
-[19] https://sst.dev/examples/how-to-create-a-rest-api-with-serverless.html
-[20] https://www.serverless.com/plugins/serverless-apigateway-route-settings
+- [1] https://forum.serverless.com/t/put-methods-under-existing-api-in-aws-api-gateway/2985
+- [2] https://www.fernandomc.com/posts/schema-validation-serverless-framework/
+- [3] https://www.serverless.com/plugins/serverless-add-api-key
+- [4] https://www.serverlessguru.com/blog/request-validation-with-api-gateway-models
+- [5] https://forum.serverless.com/t/creating-api-keys/847
+- [6] https://blog.codeops.tech/validate-your-api-request-at-the-api-gateway-using-serverless-framework
+- [7] https://www.serverless.com/framework/docs/providers/aws/guide/intro
+- [8] https://aws.plainenglish.io/the-serverless-trap-5-aws-lambda-limitations-they-dont-tell-you-about-1dcc45232cc4
+- [9] https://docs.databricks.com/aws/en/compute/serverless/limitations
+- [10] https://www.serverless.com/framework/docs/providers/aws/events/apigateway
+- [11] https://forum.serverless.com/t/how-do-you-add-a-request-validator-to-api-gateway/12923
+- [12] https://forum.serverless.com/t/response-schema-validators/8870
+- [13] https://newrelic.com/blog/best-practices/what-is-serverless-architecture
+- [14] https://gbh.tech/challenges-of-implementing-a-serverless-architecture/
+- [15] https://www.reddit.com/r/serverless/comments/1b8zc51/senior_developers_i_know_are_always_hating_on/
+- [16] https://techdocs.broadcom.com/us/en/ca-enterprise-software/layer7-api-management/api-gateway/10-1/policy-assertions/assertion-palette/message-validation-transformation-assertions/validate-json-schema-assertion-message-validation-transformation.html
+- [17] https://cloud.google.com/api-gateway/docs/authenticate-api-keys
+- [18] https://aws.amazon.com/marketplace/pp/prodview-3mpatxr6fwcca
+- [19] https://sst.dev/examples/how-to-create-a-rest-api-with-serverless.html
+- [20] https://www.serverless.com/plugins/serverless-apigateway-route-settings
