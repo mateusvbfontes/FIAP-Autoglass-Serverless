@@ -120,3 +120,111 @@ functions:
 - Lembre de não permitir que propriedades não descritas no json schema sejam aceitas na requisição e validar os campos obrigatórios.
 - Todos os códigos de exemplo estão disponíveis no repositório do GitHub em python, mas caso deseje, pode utilizar outra linguagem de programação disponivel para AWS Lambda.
 - A atividade pode ser desenvolvida totalmente em serverless framework ou utilizando a console da AWS. Recomendo que utilize serverless framework para facilitar a criação e deploy das funções Lambda e suas triggers.
+
+#### Atividades Extras para o desafio
+
+## 10 Sugestões de Implementações Extras para o Desafio Serverless (Respeitando Limitações do Academy)
+
+---
+
+### 1. **Validação de Payload com JSON Schema no API Gateway**
+- **Descrição:** Adicione validação de payloads de requisições usando JSON Schema Models diretamente no API Gateway, rejeitando automaticamente dados inválidos antes de chegar à Lambda. Valido para novos endpoints.
+- **Pontuação:** 15 pontos
+- **Referência:** [2][4][6]
+
+---
+
+### 2. **Proteção de Endpoints com Chaves de API (API Keys)**
+- **Descrição:** Configure API Keys e Usage Plans no API Gateway para controlar e monitorar o acesso aos endpoints, exigindo que clientes forneçam uma chave válida. Valida uma chave de API para novos endpoints criados.
+- **Pontuação:** 12 pontos
+- **Referência:** [3][5]
+
+---
+
+### 3. **Criação de Novos Paths/Recursos na API**
+- **Descrição:** Implemente novos endpoints REST (ex: `/clientes`, `/relatorios`, `/status`) e associe-os a novas funções Lambda, ampliando a funcionalidade do sistema.
+- **Pontuação:** 10 pontos
+- **Referência:** [1]
+
+---
+
+### 4. **Validação de Parâmetros de Path e Query String**
+- **Descrição:** Defina validações para parâmetros de rota e query string no API Gateway, usando modelos e restrições de tipos/valores. Valido para novos endpoints criados que utilizem parâmetros de path ou query string.
+- **Pontuação:** 10 pontos
+
+---
+
+### 5. **Implementação de Limite de Taxa (Throttling) por Usage Plan**
+- **Descrição:** Defina limites de requisições por minuto/hora para diferentes chaves de API, evitando abuso e protegendo recursos. Valido um por grupo.
+- **Pontuação:** 12 pontos
+
+---
+
+### 6. **Resposta Customizada para Erros de Validação**
+- **Descrição:** Configure mensagens de erro customizadas para falhas de validação de payload, melhorando o feedback ao usuário. Valido para mensagens de erro que podem ser mostradas na demo
+- **Pontuação:** 8 pontos
+- **Observação:** API Gateway permite customização limitada, mas é possível definir mensagens genéricas[4].
+
+---
+
+### 7. **Integração de Lambda com DynamoDB para Novos Recursos**
+- **Descrição:** Crie funções Lambda extras para manipular novos tipos de dados em tabelas DynamoDB (ex: logs de acesso, histórico de operações).
+- **Pontuação:** 10 pontos
+
+---
+
+### 8. **Implementação de Endpoint para Exportação de Dados (S3)**
+- **Descrição:** Adicione um endpoint que exporta registros do DynamoDB para um arquivo CSV em um bucket S3, usando Lambda.
+- **Pontuação:** 15 pontos
+
+---
+
+### 9. **Envio de Notificações via SNS em Eventos Específicos**
+- **Descrição:** Configure Lambda para publicar mensagens em um tópico SNS ao detectar eventos importantes (ex: criação de ordem crítica).
+- **Pontuação:** 10 pontos
+
+---
+
+### 10. **Documentação Automática dos Endpoints (Swagger/OpenAPI)**
+- **Descrição:** Utilize o recurso de documentação do API Gateway para descrever cada endpoint, parâmetros, modelos de resposta e exemplos, facilitando o uso da API por terceiros. Valida uma automação para toda a API. Tem que apresentar a demo no swagger UI
+- **Pontuação:** 8 pontos
+
+---
+
+## Tabela Resumida
+
+| Sugestão                                              | Pontuação |
+|-------------------------------------------------------|-----------|
+| Validação de Payload com JSON Schema                  | 15        |
+| Chaves de API e Usage Plans                           | 12        |
+| Novos Paths/Recursos na API                           | 10        |
+| Validação de Parâmetros de Path/Query                 | 10        |
+| Limite de Taxa por Usage Plan                         | 12        |
+| Resposta Customizada para Erros de Validação          | 8         |
+| Lambda+DynamoDB para Novos Recursos                   | 10        |
+| Endpoint de Exportação de Dados para S3               | 15        |
+| Notificações via SNS                                  | 10        |
+| Documentação Automática dos Endpoints                 | 8         |
+
+
+Citações:
+- [1] https://forum.serverless.com/t/put-methods-under-existing-api-in-aws-api-gateway/2985
+- [2] https://www.fernandomc.com/posts/schema-validation-serverless-framework/
+- [3] https://www.serverless.com/plugins/serverless-add-api-key
+- [4] https://www.serverlessguru.com/blog/request-validation-with-api-gateway-models
+- [5] https://forum.serverless.com/t/creating-api-keys/847
+- [6] https://blog.codeops.tech/validate-your-api-request-at-the-api-gateway-using-serverless-framework
+- [7] https://www.serverless.com/framework/docs/providers/aws/guide/intro
+- [8] https://aws.plainenglish.io/the-serverless-trap-5-aws-lambda-limitations-they-dont-tell-you-about-1dcc45232cc4
+- [9] https://docs.databricks.com/aws/en/compute/serverless/limitations
+- [10] https://www.serverless.com/framework/docs/providers/aws/events/apigateway
+- [11] https://forum.serverless.com/t/how-do-you-add-a-request-validator-to-api-gateway/12923
+- [12] https://forum.serverless.com/t/response-schema-validators/8870
+- [13] https://newrelic.com/blog/best-practices/what-is-serverless-architecture
+- [14] https://gbh.tech/challenges-of-implementing-a-serverless-architecture/
+- [15] https://www.reddit.com/r/serverless/comments/1b8zc51/senior_developers_i_know_are_always_hating_on/
+- [16] https://techdocs.broadcom.com/us/en/ca-enterprise-software/layer7-api-management/api-gateway/10-1/policy-assertions/assertion-palette/message-validation-transformation-assertions/validate-json-schema-assertion-message-validation-transformation.html
+- [17] https://cloud.google.com/api-gateway/docs/authenticate-api-keys
+- [18] https://aws.amazon.com/marketplace/pp/prodview-3mpatxr6fwcca
+- [19] https://sst.dev/examples/how-to-create-a-rest-api-with-serverless.html
+- [20] https://www.serverless.com/plugins/serverless-apigateway-route-settings
