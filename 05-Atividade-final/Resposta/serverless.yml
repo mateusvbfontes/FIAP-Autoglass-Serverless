@@ -1,22 +1,34 @@
 service: atividadefinal
 frameworkVersion: '3'
 
+plugins:
+  - serverless-aws-documentation
+
 provider:
   name: aws
   runtime: python3.11
   memorySize: 128
   region: 'us-east-1'
+  apiGateway:
+    apiKeys:
+      - AvaliacaoFinal-Feedback
+    usagePlan:
+      AvaliacaoFinal-Feedback:
+        throttle:
+          rateLimit: 1000
+          burstLimit: 1500
+        quota:
+          limit: 10000
+          period: MONTH
   iam:
     role: !Sub arn:aws:iam::${AWS::AccountId}:role/LabRole
-
 
 functions:
   sqsHandler:
     handler: handler.sqs
     events:
       - sqs:
-          arn:
-            arn:aws:sqs:us-east-1:041854577888:feedback
+          arn: arn:aws:sqs:us-east-1:185837994267:feedback-queue
           batchSize: 1
           enabled: true
   feedback:
@@ -25,6 +37,53 @@ functions:
       - http:
           path: feedback
           method: post
+          private: true
+          apiKey: true
           request:
             schemas:
               application/json: ${file(./feedback_request.json)}
+          documentation:
+            summary: "Recebe feedback do cliente"
+            description: "Endpoint para envio de feedbacks"
+            requestBody:
+              description: "JSON com os dados do feedback"
+            requestModels:
+              "application/json": FeedbackRequest
+            methodResponses:
+              - statusCode: '200'
+                responseBody:
+                  description: "Confirmação de recebimento"
+                responseModels:
+                  "application/json": FeedbackResponse
+
+resources:
+  Resources:
+    FeedbacksTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Feedback
+        AttributeDefinitions:
+          - AttributeName: id_cliente
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id_cliente
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+    FeedbackNotificationTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: feedback-notification
+
+
+custom:
+  documentation:
+    models:
+      - name: FeedbackRequest
+        contentType: "application/json"
+        schema: ${file(./feedback_request.json)}
+      - name: FeedbackResponse
+        contentType: "application/json"
+        schema:
+          type: string

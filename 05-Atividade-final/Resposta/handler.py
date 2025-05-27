@@ -1,6 +1,7 @@
 import json
 import boto3
 from sqsHandler import SqsHandler
+from baseDAO import BaseDAO
 
 
 def api(event, context):
@@ -8,7 +9,7 @@ def api(event, context):
     
     payload=json.loads(event["body"])
     
-    sqs = SqsHandler("https://sqs.us-east-1.amazonaws.com/041854577888/feedback")
+    sqs = SqsHandler("https://sqs.us-east-1.amazonaws.com/185837994267/feedback-queue")
     sqs.send(json.dumps(payload))
     
     return {
@@ -19,7 +20,16 @@ def api(event, context):
 def sqs(event, context):
     print(json.dumps(event))
     
+    dao = BaseDAO("Feedback") # Instancia o DAO (ajuste se precisar de parâmetros)
     for record in event["Records"]:
-        payload = record["body"]
+        payload = json.loads(record["body"])
+        dao.put_item(payload)
+
+        sns = boto3.client('sns')
+        sns.publish(
+            TopicArn='arn:aws:sns:us-east-1:185837994267:feedback-notification',
+            Message=json.dumps(payload),
+            Subject='Novo Feedback Recebido'
+        )
 
     
